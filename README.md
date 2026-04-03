@@ -7,8 +7,11 @@ SidewinderContracting — In-The-Wild Termux Non-Root Userland Time Problem
 ================================================================================
 
 Author: Michael S. Errington
+
 Role: Researcher and Developer
+
 Date: March 2026
+
 Scope: Demonstration and analysis of time-based weaknesses in Termux non-root userland
 ================================================================================
 
