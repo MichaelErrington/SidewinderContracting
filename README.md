@@ -31,6 +31,36 @@ saw. The results were eye-opening: the naive time always drifted with my manual 
 while UTC-aware time (datetime.now(datetime.UTC)) remained correct.  
 
 ================================================================================
+
+RESPONSIBLE DISCLOSURE
+----------------------
+Before publishing this research, I reached out to both the Python Software 
+Foundation and the Termux project maintainers with detailed findings and a 
+reproducible proof-of-concept.
+
+Response Summary:
+• Python maintainers stated this represents a design consideration rather than 
+  a bug in the Python language itself — the behavior is as intended and 
+  documented.
+• Termux maintainers indicated this falls outside their scope, as the 
+  vulnerability relies on user-controlled device settings (clock adjustment) 
+  rather than a defect in Termux.
+• Both parties classified the issue as "theoretical" or "by design," declining 
+  to treat it as a security vulnerability requiring a patch.
+
+Publishing Rationale:
+Given that affected parties do not consider this a bug to be fixed, but rather 
+a design/policy issue, I am publishing this research publicly for educational 
+purposes. The goal is to raise awareness among developers about implicit trust 
+assumptions in their applications — specifically, that naive timestamps should 
+never be treated as immutable or trustworthy in user-controlled environments.
+
+This is NOT an exploit or an attack vector that breaks the projects themselves, 
+but rather an educational demonstration of how application-layer logic can be 
+silently compromised through mutable system state, even when cryptography 
+remains sound.
+
+================================================================================
 WHAT THIS TOOL DOES
 ------------------
 SidewinderContracting is a self-contained Python proof-of-concept. It:
